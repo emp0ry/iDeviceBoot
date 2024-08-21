@@ -190,7 +190,8 @@ def main():
                 time_new = int(time.time() - time_start)
                 if time_new != time_old:
                     time_old = time_new
-                    print(f"[!] Press and hold Home (Volume Down) + Power button ({first_time - time_old})")
+                    if first_time - time_old != -1:
+                        print(f"[!] Press and hold Home (Volume Down) + Power button ({first_time - time_old})")
 
                     if first_time - time_old == 2 and gotodfu_state:
                         gotodfu_state = False
@@ -233,16 +234,15 @@ def main():
 
         libusbk_fix = True
         while not GASTER_STATE:
+            while idevicegetstate() == -1:
+                time.sleep(0.5)
+
             if idevicegetstate() == 1:
                 print("[!] Error with going to PWNDFU. Try again...")
                 os._exit(0)
+
             if idevicegetstate() == 2 and libusbk_fix:
-                time.sleep(3)
                 if device_driver_which() != 2:
-                    if device_driver_which() == 1:
-                        if idevicestate() == 3:
-                            break
-                    time.sleep(5)
                     if (not GASTER_STATE):
                         libusbk_fix = False
                         print("[*] Changing iDevice driver to libusbK")
