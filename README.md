@@ -8,19 +8,22 @@ Ensure you have the latest version of Python installed. <br/>
 pip install WMI
 ```
 ### Step 2: Install iDeviceBoot
-- Download the latest release of iDeviceBoot. <br/>
+- Download the latest release of [iDeviceBoot](https://github.com/emp0ry/iDeviceBoot/releases/). <br/>
 #### If you have downgraded your iDevice using downr1n:
 1. Navigate to the downr1n/boot/ directory.
 2. Locate your iDevice folder.
 3. Copy your iDevice folder with its files.
 4. In Windows, navigate to iDeviceBoot/tools/irecovery/boot/.
 5. Paste the folder here (for example, it's `iPhone9,4` with its files).
-### Step 3: Boot iDevice <br/>
+### Step 3: Boot iDevice
 1. Open the command prompt (cmd) with Administrator privileges.
 2. Run the following command:
 ```bash
 python main.py
 ```
+
+# Important to know
+Works but is buggy, maybe it won't work for you :D
 
 # Thank
 - Thanks to [edwin170](https://github.com/edwin170/) for helping me understand how [downr1n](https://github.com/edwin170/downr1n/) works.
